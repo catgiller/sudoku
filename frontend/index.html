@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cartoon: ['Bangers', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            950: '#422006',
+                        },
+                        slate: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                            950: '#0a0a0a',
+                        }
+                    },
+                    keyframes: {
+                        'pop-cell': {
+                            '0%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.15)', backgroundColor: '#facc15', color: '#000', zIndex: 10, borderRadius: '8px', boxShadow: '0 0 15px rgba(250, 204, 21, 0.5)' },
+                            '100%': { transform: 'scale(1)' },
+                        },
+                        'ko-pop': {
+                            '0%': { transform: 'translate(-50%, -50%) scale(0)', opacity: 0 },
+                            '15%': { transform: 'translate(-50%, -50%) scale(1.1)', opacity: 1 },
+                            '25%': { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                            '80%': { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                            '100%': { transform: 'translate(-50%, -50%) scale(1.5)', opacity: 0 },
+                        },
+                        'flame': {
+                            '0%, 100%': { textShadow: '0 -5px 4px #FF3, 2px -10px 6px #FD3, -2px -15px 11px #F80, 2px -25px 18px #F20' },
+                            '50%': { textShadow: '0 -5px 4px #FF3, -2px -12px 6px #FD3, 2px -18px 11px #F80, -2px -28px 18px #F20' },
+                        },
+                        'float-text': {
+                            '0%': { transform: 'translate(-50%, 0) scale(0.5)', opacity: 0 },
+                            '20%': { transform: 'translate(-50%, -20px) scale(1.2)', opacity: 1 },
+                            '80%': { transform: 'translate(-50%, -40px) scale(1)', opacity: 1 },
+                            '100%': { transform: 'translate(-50%, -60px) scale(0)', opacity: 0 },
+                        },
+                        'chomp-attacker': {
+                            '0%': { transform: 'translateX(0) scale(1) rotate(0deg)' },
+                            '20%': { transform: 'translateX(10px) scale(1.3) rotate(-20deg)' },
+                            '40%': { transform: 'translateX(25px) scale(1.4) rotate(15deg)' },
+                            '60%': { transform: 'translateX(25px) scale(1.2) rotate(0deg)' },
+                            '80%': { transform: 'translateX(25px) scale(1.2) rotate(0deg)' },
+                            '100%': { transform: 'translateX(0) scale(1) rotate(0deg)' },
+                        },
+                        'chomp-victim': {
+                            '0%': { transform: 'translateX(0) scale(1)', opacity: 1 },
+                            '20%': { transform: 'translateX(5px) scale(0.9) rotate(10deg)', opacity: 1 },
+                            '40%': { transform: 'translateX(10px) scale(0) rotate(45deg)', opacity: 0 },
+                            '100%': { transform: 'translateX(10px) scale(0)', opacity: 0 },
+                        }
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'pop-cell': 'pop-cell 0.6s ease-in-out',
+                        'ko-pop': 'ko-pop 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+                        'flame': 'flame 0.5s ease-in-out infinite',
+                        'float-text': 'float-text 1.5s ease-out forwards',
+                        'chomp-attacker': 'chomp-attacker 1.5s ease-in-out forwards',
+                        'chomp-victim': 'chomp-victim 1.5s ease-in-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+        <style>
+        body {
+            background-color: #000000; /* Pure black background */
+            color: #f5f5f5; /* slate-100 */
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+        }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #171717; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #404040; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #525252; 
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+<script type="module" src="/index.js"></script></body>
+</html>
